@@ -8,8 +8,8 @@ These problems illustrate concepts that previous problems have not emphasized:
   -- animation (Problem 0c)
 
 Authors: David Mutchler, Vibha Alangar, Valerie Galluzzi, Mark Hays,
-         Amanda Stouder, their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Amanda Stouder, their colleagues and Landon Bundy.
+"""  # TODONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import testing_helper
@@ -18,13 +18,13 @@ import time
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_problem0a()
-    run_test_problem0b()
+    #run_test_problem0a()
+    #run_test_problem0b()
     run_test_problem0c()
 
 
 ########################################################################
-# TODO: 2.  READ the green doc-string for the:
+# TODONE: 2.  READ the green doc-string for the:
 #   - is_prime
 #   - sum_of_digits
 # functions defined below.  You do NOT need to understand their
@@ -101,8 +101,7 @@ def run_test_problem0a():
 
     # Test 1:
     expected = False
-    print_expected_result_of_test([83135], expected, test_results,
-                                  format_string)
+    print_expected_result_of_test([83135], expected, test_results, format_string)
     actual = problem0a(83135)  # Run the code to test
     print_actual_result_of_test(expected, actual, test_results)
     if actual == 'False':
@@ -159,7 +158,7 @@ def problem0a(n):
            since (2 + 4 + 6) is 12, which is NOT odd.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # TODOne: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -176,6 +175,13 @@ def problem0a(n):
     #        Simply try a few examples to convince yourself of this.
     #        ASK FOR HELP if you do not understand this hint.
     # ------------------------------------------------------------------
+
+    sum = sum_of_digits(n)
+    r = sum % 2
+    if r == 1:
+        return True
+
+    return False
 
 
 def run_test_problem0b():
@@ -240,6 +246,15 @@ def problem0b(n):
     ####################################################################
     # ------------------------------------------------------------------
 
+    count = 0
+    for k in range(n-1):
+        is_prime(k+2)
+
+        if is_prime(k+2):
+            count = count+1
+
+    return count
+
 
 def run_test_problem0c():
     """ Tests the   problem0c  function. """
@@ -298,7 +313,7 @@ def problem0c(circle, n, window):
       :type window: rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # TODOne: 5. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -306,6 +321,15 @@ def problem0c(circle, n, window):
     #   renders with a half-second pause after rendering.
     ####################################################################
     # ------------------------------------------------------------------
+
+    for k in range(n):
+        circle.center
+        circle.radius
+        point = rg.Point(circle.center.x + 2*circle.radius*k, circle.center.y)
+        circle2 = rg.Circle(point, circle.radius)
+        circle.attach_to(window)
+        circle2.attach_to(window)
+    window.render(0.5)
 
 
 ###############################################################################
