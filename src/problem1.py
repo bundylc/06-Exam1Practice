@@ -34,8 +34,8 @@ import time
 def main():
     """ Calls the   TEST   functions in this module. """
     #run_test_problem1a()
-    run_test_problem1b()
-    #run_test_problem1c()
+    #run_test_problem1b()
+    run_test_problem1c()
 
 
 ########################################################################
@@ -159,8 +159,6 @@ def run_test_problem1a():
     #   print('       actual:  ', actual)
     #  ------------------------------------------------------------------
 
-
-def problem1a(m, n):
     """
     What comes in:  Integers m and n with abs(m) <= abs(n).
     What goes out:
@@ -190,8 +188,8 @@ def problem1a(m, n):
 
 def problem1a(m, n):
     total = 0
-    for k in range(m ** 2, (n ** 2)+1):
-        total = total + math.sin(k)
+    for k in range((n**2)-(m**2)+1):
+        total = total + math.sin((m**2)+k)
     return total
 
 
@@ -218,25 +216,25 @@ def run_test_problem1b():
 
     # Test 1:
     expected = 3
-    actual = problem1a(2, 3)
+    actual = problem1b(2, 3)
     print('Test 1 expected:', expected)
     print('        actual: ', actual)
 
     # Test 2:
     expected = 1
-    actual = problem1a(2, 1)
+    actual = problem1b(2, 1)
     print('Test 1 expected:', expected)
     print('        actual: ', actual)
 
     # Test 3:
     expected = 5
-    actual = problem1a(3, 5)
+    actual = problem1b(3, 5)
     print('Test 1 expected:', expected)
     print('        actual: ', actual)
 
     # Test 4:
     expected = 44
-    actual = problem1a(5, 40)
+    actual = problem1b(5, 40)
     print('Test 1 expected:', expected)
     print('        actual: ', actual)
 
@@ -256,7 +254,7 @@ def run_test_problem1b():
            since there are 44 primes between 5 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # TODONE: 6. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     #
     ####################################################################
@@ -272,12 +270,11 @@ def run_test_problem1b():
 
 
 def problem1b(m, f):
-    for k in range(m, f*m):
-        is_prime(k)
-
-        if is_prime(k):
+    count = 0
+    for k in range((f * m) - m + 1):
+        prime = is_prime(m+k)
+        if prime == True:
             count = count + 1
-
     return count
 
 
@@ -358,7 +355,7 @@ def run_test_problem1c():
            and the sum of the digits in 223092870 is 33.
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # TODONE: 7. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -375,8 +372,12 @@ def run_test_problem1c():
 
 
 def problem1c(n):
-    for k in range(n):
-        is_prime(k+2)
+    total = 1
+    for k in range(n - 2 + 1):
+        prime = is_prime(2+k)
+        if prime is True:
+            total = total * (2+k)
+    return sum_of_digits(total)
 
 
 ###############################################################################

@@ -236,7 +236,7 @@ def problem0b(n):
            since there are 46 primes between 2 and 200.
      """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement and test this function.
+    # TODONE: 4. Implement and test this function.
     #          Tests have been written for you (above).
     #
     ####################################################################
@@ -323,8 +323,6 @@ def problem0c(circle, n, window):
     # ------------------------------------------------------------------
 
     for k in range(n):
-        circle.center
-        circle.radius
         point = rg.Point(circle.center.x + 2*circle.radius*k, circle.center.y)
         circle2 = rg.Circle(point, circle.radius)
         circle.attach_to(window)
